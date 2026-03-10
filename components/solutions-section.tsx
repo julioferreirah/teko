@@ -10,74 +10,56 @@ const profiles = [
     icon: Stethoscope,
     tag: "Para o Médico",
     title: "Zero app novo pra aprender",
-    description:
-      "O médico vê sua escala e faz trocas de plantão direto pelo WhatsApp que já usa. Confirmação em segundos, sem fricção, sem resistência.",
-    bullets: [
-      "Notificações automáticas de escala",
-      "Troca de plantão via WhatsApp",
-      "Histórico de plantões disponível",
-    ],
+    description: "O médico vê sua escala e faz trocas de plantão direto pelo WhatsApp que já usa. Confirmação em segundos, sem fricção, sem resistência.",
+    bullets: ["Notificações automáticas de escala", "Troca de plantão via WhatsApp", "Histórico de plantões disponível"],
   },
   {
     icon: LayoutDashboard,
     tag: "Para o Gestor",
     title: "Escala sincronizada 24/7",
-    description:
-      "Visão completa da escala em tempo real. Qualquer mudança é refletida instantaneamente para todos. Sem ligações, sem mensagens, sem retrabalho.",
-    bullets: [
-      "Escala sempre atualizada",
-      "Alertas de conflito automáticos",
-      "Trava de qualificação por setor",
-    ],
+    description: "Visão completa da escala em tempo real. Qualquer mudança é refletida instantaneamente para todos. Sem ligações, sem mensagens, sem retrabalho.",
+    bullets: ["Escala sempre atualizada", "Alertas de conflito automáticos", "Trava de qualificação por setor"],
     featured: true,
   },
   {
     icon: BadgeDollarSign,
     tag: "Para o Financeiro",
     title: "Repasse calculado, não estimado",
-    description:
-      "Regras financeiras configuradas uma vez. O sistema calcula automaticamente cada repasse — por dia, horário, setor e contrato. Auditável e incontestável.",
-    bullets: [
-      "Motor de regras financeiras",
-      "Dupla validação de presença",
-      "Exportação para folha de pagamento",
-    ],
+    description: "Regras financeiras configuradas uma vez. O sistema calcula automaticamente cada repasse — por dia, horário, setor e contrato. Auditável e incontestável.",
+    bullets: ["Motor de regras financeiras", "Dupla validação de presença", "Exportação para folha de pagamento"],
   },
 ];
 
 const techFeatures = [
-  { icon: MessageCircle, title: "Integração WhatsApp", desc: "Automação nativa onde o médico já está" },
-  { icon: ShieldCheck, title: "Dupla Validação", desc: "Secretária confirma presença antes do pagamento" },
-  { icon: Calculator, title: "Motor Financeiro", desc: "Regras complexas, zero erro humano" },
-  { icon: Lock, title: "Trava de Qualificação", desc: "Impede alocação indevida automaticamente" },
+  { icon: MessageCircle,  title: "Integração WhatsApp",  desc: "Automação nativa onde o médico já está" },
+  { icon: ShieldCheck,    title: "Dupla Validação",       desc: "Secretária confirma presença antes do pagamento" },
+  { icon: Calculator,     title: "Motor Financeiro",      desc: "Regras complexas, zero erro humano" },
+  { icon: Lock,           title: "Trava de Qualificação", desc: "Impede alocação indevida automaticamente" },
 ];
 
 export function SolutionsSection() {
-  const ref = useRef(null);
+  const ref    = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} id="solucoes" className="py-20 md:py-28 bg-teko-dark">
+    <section ref={ref} id="solucoes" className="py-20 md:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-5">
 
-        {/* Header */}
         <motion.div
           className="mb-14 text-center"
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-teko-accent/20 bg-teko-accent/10 px-4 py-1.5">
-            <span className="text-xs font-semibold uppercase tracking-wider text-teko-accent">
-              Uma plataforma. Três perfis. Zero fricção.
-            </span>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-teko-primary/20 bg-teko-light px-4 py-1.5">
+            <span className="text-xs font-semibold uppercase tracking-wider text-teko-primary">Uma plataforma. Três perfis. Zero fricção.</span>
           </div>
-          <h2 className="mb-4 font-[var(--font-geist)] text-3xl font-black tracking-tight text-white md:text-4xl">
+          <h2 className="mb-4 font-[var(--font-geist)] text-3xl font-black tracking-tight text-gray-900 md:text-4xl">
             Simples pro médico.{" "}
-            <span className="text-teko-accent">Poderoso pro gestor.</span>{" "}
+            <span className="text-teko-primary">Poderoso pro gestor.</span>{" "}
             Confiável pro financeiro.
           </h2>
-          <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/50">
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-500">
             Do agendamento à validação de presença, do cálculo de repasses à auditoria
             financeira — tudo em uma plataforma desenhada para quem usa.
           </p>
@@ -92,48 +74,25 @@ export function SolutionsSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.12 }}
             >
-              <div
-                className={`relative h-full rounded-2xl border p-px ${
-                  p.featured ? "border-teko-primary/50" : "border-white/10"
-                }`}
-              >
-                <GlowingEffect
-                  spread={40}
-                  glow={p.featured}
-                  disabled={false}
-                  proximity={64}
-                  inactiveZone={0.01}
-                  borderWidth={2}
-                />
-                <div
-                  className={`relative flex h-full flex-col rounded-2xl p-6 ${
-                    p.featured ? "bg-[#0d2218]" : "bg-white/[0.04]"
-                  }`}
-                >
+              <div className={`relative h-full rounded-2xl border p-px ${p.featured ? "border-teko-primary/40" : "border-gray-200"}`}>
+                <GlowingEffect spread={40} glow={!!p.featured} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
+                <div className={`relative flex h-full flex-col rounded-2xl p-6 ${p.featured ? "bg-teko-light" : "bg-gray-50"}`}>
                   {p.featured && (
-                    <div className="mb-4 self-start rounded-full bg-teko-accent/10 px-3 py-1">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-teko-accent">
-                        ⭐ Mais impactante
-                      </span>
+                    <div className="mb-4 self-start rounded-full bg-teko-primary/10 px-3 py-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-teko-primary">⭐ Mais impactante</span>
                     </div>
                   )}
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-teko-primary/20">
-                    <p.icon size={22} className="text-teko-accent" />
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-teko-primary/15">
+                    <p.icon size={22} className="text-teko-primary" />
                   </div>
-                  <p className="mb-1 text-xs font-bold uppercase tracking-wider text-teko-accent/60">
-                    {p.tag}
-                  </p>
-                  <h3 className="mb-3 font-[var(--font-geist)] text-lg font-bold text-white">
-                    {p.title}
-                  </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-white/50 flex-1">
-                    {p.description}
-                  </p>
+                  <p className="mb-1 text-xs font-bold uppercase tracking-wider text-teko-primary/60">{p.tag}</p>
+                  <h3 className="mb-3 font-[var(--font-geist)] text-lg font-bold text-gray-900">{p.title}</h3>
+                  <p className="mb-5 text-sm leading-relaxed text-gray-500 flex-1">{p.description}</p>
                   <ul className="flex flex-col gap-2">
                     {p.bullets.map((b) => (
                       <li key={b} className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-teko-accent" />
-                        <span className="text-xs text-white/60">{b}</span>
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-teko-primary" />
+                        <span className="text-xs text-gray-500">{b}</span>
                       </li>
                     ))}
                   </ul>
@@ -143,7 +102,7 @@ export function SolutionsSection() {
           ))}
         </div>
 
-        {/* Tech features — 4 horizontal pills */}
+        {/* Tech features */}
         <motion.div
           className="grid grid-cols-2 gap-3 md:grid-cols-4"
           initial={{ opacity: 0, y: 20 }}
@@ -151,32 +110,25 @@ export function SolutionsSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           {techFeatures.map((f) => (
-            <div
-              key={f.title}
-              className="flex flex-col gap-2 rounded-xl border border-white/8 bg-white/[0.03] p-4 transition-colors hover:bg-white/[0.07]"
-            >
+            <div key={f.title} className="flex flex-col gap-2 rounded-xl border border-gray-100 bg-gray-50 p-4 transition-colors hover:border-teko-primary/20 hover:bg-teko-light">
               <f.icon size={18} className="text-teko-primary" />
-              <p className="text-sm font-semibold text-white">{f.title}</p>
-              <p className="text-xs leading-relaxed text-white/40">{f.desc}</p>
+              <p className="text-sm font-semibold text-gray-800">{f.title}</p>
+              <p className="text-xs leading-relaxed text-gray-400">{f.desc}</p>
             </div>
           ))}
         </motion.div>
 
         {/* Screenshot */}
         <motion.div
-          className="mt-12 overflow-hidden rounded-2xl bg-[#0a1f14] p-5 md:p-8"
+          className="mt-12 overflow-hidden rounded-2xl bg-teko-dark p-5 md:p-8"
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-wider text-teko-accent/60">
+          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-wider text-teko-accent/70">
             Painel de Administração · App do Médico
           </p>
-          <img
-            src="/images/teko-desktop-admin.png"
-            alt="Painel do Teko"
-            className="mx-auto w-full max-w-4xl rounded-xl"
-          />
+          <img src="/images/teko-desktop-admin.png" alt="Painel do Teko" className="mx-auto w-full max-w-4xl rounded-xl" />
         </motion.div>
       </div>
     </section>
